@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Selenium TestNG Suite">
+    <test name="Regression">
+        <classes>
+            <class name="PRODUCTS.Bugaboo.tests.CustomerContactTests.CustomerContactTests"/>
+            <class name="PRODUCTS.Bugaboo.tests.CustomerContactTests.CustomerContactFaqsTests"></class>
+        </classes>
+    </test>
+</suite>
