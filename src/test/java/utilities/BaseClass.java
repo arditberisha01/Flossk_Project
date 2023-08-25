@@ -11,8 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+
 
 import java.io.File;
 import java.time.Duration;
@@ -28,14 +29,14 @@ public abstract class BaseClass {
 
     protected static Select select;
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp(){
         driver = Driver.getDriver();
         actions = new Actions(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-    @AfterMethod
+    @AfterSuite
     public void tearDown(){
         Driver.closeDriver();
     }
@@ -47,7 +48,7 @@ public abstract class BaseClass {
                 TakesScreenshot scrShot = ((TakesScreenshot) driver);
                 File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
                 File destFile = new File(System.getProperty("user.home") +
-                        "/IdeaProjects/Flossk_TestNG_Framework/target/screenshots-for-failed-testcases/" +
+                        "/IdeaProjects/Flossk_Project_Testing/target/screenshots-for-failed-testcases/" +
                         result.getName() + ".png");
                 FileUtils.copyFile(srcFile, destFile);
             }catch (Exception e){

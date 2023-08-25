@@ -29,6 +29,7 @@ public class BrowserUtils extends BaseClass{
 
     public static void doubleClick(WebElement elm){
         actions.doubleClick(elm);
+        actions.perform();
     }
 
     public static void switchToAlert(){
