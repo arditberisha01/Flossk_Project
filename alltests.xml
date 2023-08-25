@@ -2,8 +2,8 @@
 <suite name="Selenium TestNG Suite">
     <test name="Regression">
         <classes>
-            <class name="PRODUCTS.Bugaboo.tests.CustomerContactTests.CustomerContactTests"/>
-            <class name="PRODUCTS.Bugaboo.tests.CustomerContactTests.CustomerContactFaqsTests"></class>
+            <class name="products.bugaboo.tests.CustomerContactTests.CustomerContactTests"/>
+            <class name="products.bugaboo.tests.CustomerContactTests.CustomerContactFaqsTests"/>
         </classes>
     </test>
 </suite>

@@ -1,4 +1,4 @@
-package PRODUCTS.Bugaboo.pages.CustomerContactPages;
+package products.bugaboo.pages.CustomerContactPages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,9 +8,6 @@ import static utilities.BrowserUtils.*;
 import static utilities.WaitUtils.*;
 
 public class CustomerContactFaqsPages extends BasePage {
-
-    @FindBy(xpath = "//button[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']")
-    private WebElement acceptAllCookies;
 
     @FindBy(xpath = "//span[contains(text(), \"Please choose a question\")]")
     private WebElement errorText;
@@ -30,7 +27,7 @@ public class CustomerContactFaqsPages extends BasePage {
     @FindBy(xpath = "//span[contains(text(),\"How will I be contacted for a delivery appointment?\")]")
     private WebElement faqOrderTwo;
 
-    @FindBy(xpath = "//span[contains(text(),\"Is there a different return policy for the Bugaboo Assembly & Demo Service?\")]")
+    @FindBy(xpath = "//span[contains(text(),\"Is there a different return policy\")]")
     private WebElement faqOrderThree;
 
     @FindBy(xpath = "//span[contains(text(),\"What is your expected shipping timeline?\")]")
@@ -62,7 +59,8 @@ public class CustomerContactFaqsPages extends BasePage {
 
 
 
-    public Boolean isErrorMessageDisplayed(){
+    public boolean isErrorMessageDisplayed(){
+        waitUntilElmIsDisplayed(errorText);
         return errorText.isDisplayed();
     }
 
@@ -74,37 +72,30 @@ public class CustomerContactFaqsPages extends BasePage {
     }
 
     public String getTextOfQuestions(){
-
         return selectQuestions.getText();
     }
 
     public String getTextOfFaqOne(){
-
         return faqOrderOneText.getText();
     }
 
     public String getTextOfFaqTwo(){
-
         return faqOrderTwoText.getText();
     }
 
     public String getTextOfFaqThree(){
-
         return faqOrderThreeText.getText();
     }
 
     public String getTextOfFaqFour(){
-
         return faqOrderFourText.getText();
     }
 
     public String getTextOfFaqFive(){
-
         return faqOrderFiveText.getText();
     }
 
     public String getTextOfFaqSix(){
-
         return faqOrderSixText.getText();
     }
 
@@ -114,17 +105,21 @@ public class CustomerContactFaqsPages extends BasePage {
     }
 
     public void clickFaqOrderTwo(){
+        waitUntilElmIsClickable(faqOrderTwo);
         faqOrderTwo.click();
     }
 
     public void clickFaqOrderThree(){
+        waitUntilElmIsClickable(faqOrderThree);
         faqOrderThree.click();
     }
     public void clickFaqOrderFour(){
+        waitUntilElmIsClickable(faqOrderFour);
         faqOrderFour.click();
     }
 
     public void clickFaqOrderFive(){
+        waitUntilElmIsClickable(faqOrderFive);
         faqOrderFive.click();
     }
 
@@ -134,13 +129,22 @@ public class CustomerContactFaqsPages extends BasePage {
     }
 
     public void clickNextBtn(){
-        waitUntilElmIsClickable(nextBtn);
+        waitUntilElmIsDisplayed(nextBtn);
         nextBtn.click();
     }
+
+    public void doubleClickNextBtn(){
+        doubleClick(nextBtn);
+    }//webelement public return
 
     public void clickOrderQuestion(){
         waitUntilElmIsClickable(orderQuestion);
         orderQuestion.click();
+    }
+
+    public Boolean isFormPageNotDisplayed(){
+        waitUntilElmIsDisplayed(nextBtn);
+        return nextBtn.isDisplayed();
     }
 }
 
